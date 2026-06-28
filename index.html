@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ishant · Python Developer</title>
+    <title>Ishant · Data Analytics</title>
+    <!-- Premium Fonts: Space Grotesk, Inter, Manrope, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <style>
         /* ============================================================
-               CSS VARIABLES & RESET
+               CSS VARIABLES & RESET – Premium Theme
                ============================================================ */
         *,
         *::before,
@@ -23,13 +24,13 @@
             --bg-primary: #0a0a0a;
             --bg-secondary: #111111;
             --bg-surface: rgba(255, 255, 255, 0.04);
-            --bg-glass: rgba(255, 255, 255, 0.06);
+            --bg-glass: rgba(255, 255, 255, 0.05);
             --bg-glass-hover: rgba(255, 255, 255, 0.10);
             --border-glass: rgba(255, 255, 255, 0.08);
-            --border-glass-hover: rgba(255, 255, 255, 0.18);
+            --border-glass-hover: rgba(255, 255, 255, 0.20);
             --text-primary: #f5f5f7;
-            --text-secondary: #a1a1a6;
-            --text-muted: #6e6e73;
+            --text-secondary: #a8a8b0;
+            --text-muted: #6e6e78;
             --accent: #0071e3;
             --accent-glow: rgba(0, 113, 227, 0.35);
             --accent-dim: rgba(0, 113, 227, 0.12);
@@ -39,7 +40,10 @@
             --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.5);
             --shadow-glow: 0 8px 40px var(--accent-glow);
             --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-ui: 'Manrope', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
             --navbar-height: 72px;
         }
 
@@ -66,7 +70,7 @@
         }
 
         body {
-            font-family: var(--font);
+            font-family: var(--font-body);
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
@@ -110,18 +114,8 @@
             transform: translateY(0);
         }
 
-        .reveal-stagger {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth);
-        }
-        .reveal-stagger.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* ============================================================
-               GRAIN TEXTURE OVERLAY
+               GRAIN TEXTURE OVERLAY (subtle)
                ============================================================ */
         .grain-overlay {
             position: fixed;
@@ -131,7 +125,7 @@
             height: 100vh;
             pointer-events: none;
             z-index: 9999;
-            opacity: 0.35;
+            opacity: 0.25;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
             background-repeat: repeat;
             background-size: 256px 256px;
@@ -139,7 +133,7 @@
         }
 
         /* ============================================================
-               NAVBAR
+               NAVBAR – premium blur
                ============================================================ */
         .navbar {
             position: fixed;
@@ -181,6 +175,7 @@
         }
 
         .navbar-brand {
+            font-family: var(--font-heading);
             font-size: 1.4rem;
             font-weight: 700;
             letter-spacing: -0.5px;
@@ -199,6 +194,7 @@
         }
 
         .navbar-links a {
+            font-family: var(--font-ui);
             font-size: 0.85rem;
             font-weight: 500;
             padding: 8px 18px;
@@ -213,6 +209,7 @@
         }
 
         .theme-toggle {
+            font-family: var(--font-ui);
             background: var(--bg-glass);
             border: 1px solid var(--border-glass);
             border-radius: var(--radius-pill);
@@ -233,14 +230,16 @@
             color: var(--text-primary);
         }
         .theme-toggle .toggle-label {
+            font-family: var(--font-ui);
             font-size: 0.7rem;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 0.3px;
             text-transform: uppercase;
         }
 
         .nav-toggle {
             display: none;
+            font-family: var(--font-ui);
             background: var(--bg-glass);
             border: 1px solid var(--border-glass);
             border-radius: var(--radius-pill);
@@ -257,7 +256,7 @@
         }
 
         /* ============================================================
-               HERO
+               HERO – premium typography
                ============================================================ */
         .hero {
             min-height: 100vh;
@@ -268,7 +267,6 @@
             overflow: hidden;
         }
 
-        /* Subtle animated gradient background */
         .hero-bg-glow {
             position: absolute;
             top: -30%;
@@ -317,21 +315,11 @@
         }
 
         .hero-tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--accent);
-            padding: 6px 16px;
-            border-radius: var(--radius-pill);
-            background: var(--accent-dim);
-            border: 1px solid rgba(0, 113, 227, 0.15);
-            width: fit-content;
-            backdrop-filter: blur(4px);
+            display: none; /* hidden as requested */
         }
 
         .hero h1 {
+            font-family: var(--font-heading);
             font-size: clamp(2.8rem, 6vw, 4.8rem);
             font-weight: 800;
             letter-spacing: -2px;
@@ -339,7 +327,6 @@
             color: var(--text-primary);
         }
         .hero h1 .highlight {
-            color: var(--accent);
             background: linear-gradient(135deg, var(--accent), #40a9ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -347,11 +334,12 @@
         }
 
         .hero p {
+            font-family: var(--font-body);
             font-size: 1.1rem;
+            font-weight: 400;
             color: var(--text-secondary);
             max-width: 500px;
             line-height: 1.7;
-            font-weight: 400;
         }
 
         .hero-tech-tags {
@@ -361,6 +349,7 @@
             margin-top: 4px;
         }
         .hero-tech-tags .pill {
+            font-family: var(--font-ui);
             background: var(--bg-glass);
             border: 1px solid var(--border-glass);
             padding: 6px 20px;
@@ -386,6 +375,7 @@
         }
 
         .btn {
+            font-family: var(--font-ui);
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -397,7 +387,6 @@
             cursor: pointer;
             transition: all 0.4s var(--transition-smooth);
             text-decoration: none;
-            font-family: var(--font);
             letter-spacing: 0.2px;
         }
         .btn-primary {
@@ -466,32 +455,8 @@
             background: var(--bg-secondary);
         }
 
-        .hero-photo .photo-ring .placeholder-text {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: var(--bg-secondary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            text-align: center;
-            padding: 20px;
-        }
-        .hero-photo .photo-ring .placeholder-text .emoji {
-            font-size: 3rem;
-            margin-bottom: 8px;
-        }
-
-        /* Hero exit animation (parallax) */
-        .hero-exit {
-            transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
-        }
-
         /* ============================================================
-               SECTION COMMON
+               SECTION COMMON – Premium spacing & typography
                ============================================================ */
         section {
             padding: 120px 0;
@@ -499,6 +464,7 @@
         }
 
         .section-heading {
+            font-family: var(--font-heading);
             font-size: clamp(2.2rem, 4vw, 3.4rem);
             font-weight: 800;
             letter-spacing: -1.5px;
@@ -507,57 +473,45 @@
             line-height: 1.1;
         }
         .section-heading .accent {
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent), #40a9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .section-subheading {
+            font-family: var(--font-body);
             font-size: 1.1rem;
+            font-weight: 400;
             color: var(--text-secondary);
             max-width: 600px;
             margin-bottom: 48px;
-            font-weight: 400;
             line-height: 1.7;
         }
 
         /* ============================================================
-               ABOUT
+               ABOUT – premium readability
                ============================================================ */
-        #about {
-            position: relative;
-        }
         #about .about-text {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 20px;
             max-width: 720px;
         }
         #about .about-text p {
+            font-family: var(--font-body);
             font-size: 1.05rem;
+            font-weight: 400;
             color: var(--text-secondary);
             line-height: 1.8;
-            font-weight: 400;
         }
         #about .about-text p strong {
             color: var(--text-primary);
             font-weight: 600;
         }
 
-        .about-decor {
-            position: absolute;
-            right: 0;
-            top: 20%;
-            font-size: 18rem;
-            font-weight: 900;
-            color: var(--bg-glass);
-            opacity: 0.3;
-            pointer-events: none;
-            line-height: 1;
-            letter-spacing: -20px;
-            user-select: none;
-        }
-
         /* ============================================================
-               SKILLS
+               SKILLS – modern cards
                ============================================================ */
         .skills-grid {
             display: grid;
@@ -579,15 +533,13 @@
             box-shadow: var(--shadow-card);
         }
         .skills-category h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 18px;
-            color: var(--text-primary);
-            letter-spacing: -0.2px;
-            text-transform: uppercase;
+            font-family: var(--font-ui);
             font-size: 0.75rem;
+            font-weight: 600;
             letter-spacing: 1px;
+            text-transform: uppercase;
             color: var(--text-muted);
+            margin-bottom: 18px;
         }
         .skills-category .tags {
             display: flex;
@@ -595,6 +547,7 @@
             gap: 10px;
         }
         .skills-category .tag {
+            font-family: var(--font-ui);
             background: var(--bg-surface);
             border: 1px solid var(--border-glass);
             padding: 6px 20px;
@@ -613,7 +566,6 @@
             transform: translateY(-2px);
         }
 
-        /* Staggered skill tags */
         .skills-category .tag {
             opacity: 0;
             transform: translateY(20px);
@@ -626,7 +578,7 @@
         }
 
         /* ============================================================
-               PROJECTS
+               PROJECTS – premium cards
                ============================================================ */
         .projects-grid {
             display: grid;
@@ -672,13 +624,16 @@
             box-shadow: var(--shadow-card);
         }
         .project-card .project-title {
+            font-family: var(--font-heading);
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-primary);
             letter-spacing: -0.3px;
         }
         .project-card .project-desc {
+            font-family: var(--font-body);
             font-size: 0.92rem;
+            font-weight: 400;
             color: var(--text-secondary);
             line-height: 1.6;
             flex: 1;
@@ -690,6 +645,7 @@
             margin-top: 4px;
         }
         .project-card .project-tags .tag {
+            font-family: var(--font-ui);
             background: var(--accent-dim);
             color: var(--accent);
             font-size: 0.65rem;
@@ -701,6 +657,7 @@
             border: 1px solid rgba(0, 113, 227, 0.1);
         }
         .project-card .card-hint {
+            font-family: var(--font-ui);
             font-size: 0.75rem;
             color: var(--text-muted);
             margin-top: 4px;
@@ -739,12 +696,9 @@
             color: var(--accent);
             font-weight: 500;
         }
-        .project-card-coming a:hover {
-            filter: brightness(1.2);
-        }
 
         /* ============================================================
-               MODAL
+               MODAL – premium
                ============================================================ */
         .modal-overlay {
             position: fixed;
@@ -816,6 +770,7 @@
         }
 
         .modal .modal-title {
+            font-family: var(--font-heading);
             font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 8px;
@@ -823,7 +778,9 @@
             color: var(--text-primary);
         }
         .modal .modal-desc {
+            font-family: var(--font-body);
             font-size: 1rem;
+            font-weight: 400;
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 16px;
@@ -835,6 +792,7 @@
             margin-bottom: 24px;
         }
         .modal .modal-tags .tag {
+            font-family: var(--font-ui);
             background: var(--accent-dim);
             color: var(--accent);
             font-size: 0.7rem;
@@ -846,6 +804,7 @@
             border: 1px solid rgba(0, 113, 227, 0.1);
         }
         .modal .modal-btn {
+            font-family: var(--font-ui);
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -859,7 +818,6 @@
             cursor: pointer;
             transition: all 0.4s var(--transition-smooth);
             box-shadow: 0 4px 24px var(--accent-glow);
-            font-family: var(--font);
             text-decoration: none;
         }
         .modal .modal-btn:hover {
@@ -870,7 +828,7 @@
         }
 
         /* ============================================================
-               GOALS (Timeline)
+               GOALS – premium timeline
                ============================================================ */
         .goals-timeline {
             display: flex;
@@ -919,6 +877,7 @@
             box-shadow: var(--shadow-card);
         }
         .goal-item .goal-label {
+            font-family: var(--font-ui);
             font-weight: 600;
             font-size: 0.7rem;
             text-transform: uppercase;
@@ -927,8 +886,10 @@
             margin-bottom: 2px;
         }
         .goal-item .goal-text {
-            color: var(--text-secondary);
+            font-family: var(--font-body);
             font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
         .goal-item .goal-text strong {
@@ -937,7 +898,7 @@
         }
 
         /* ============================================================
-               CONTACT
+               CONTACT – premium
                ============================================================ */
         #contact {
             position: relative;
@@ -955,7 +916,9 @@
         }
 
         .contact-intro {
+            font-family: var(--font-body);
             font-size: 1.05rem;
+            font-weight: 400;
             color: var(--text-secondary);
             max-width: 540px;
             margin-bottom: 32px;
@@ -968,6 +931,7 @@
             gap: 16px;
         }
         .contact-links .contact-btn {
+            font-family: var(--font-ui);
             display: inline-flex;
             align-items: center;
             gap: 12px;
@@ -980,7 +944,6 @@
             font-size: 0.95rem;
             transition: all 0.4s var(--transition-smooth);
             text-decoration: none;
-            font-family: var(--font);
             backdrop-filter: blur(8px);
         }
         .contact-links .contact-btn:hover {
@@ -995,15 +958,16 @@
         }
 
         /* ============================================================
-               FOOTER
+               FOOTER – minimal
                ============================================================ */
         .footer {
             border-top: 1px solid var(--border-glass);
             padding: 40px 0;
             text-align: center;
-            color: var(--text-muted);
+            font-family: var(--font-body);
             font-size: 0.85rem;
             font-weight: 400;
+            color: var(--text-muted);
             letter-spacing: 0.2px;
         }
         .footer span {
@@ -1011,7 +975,7 @@
         }
 
         /* ============================================================
-               RESPONSIVE
+               RESPONSIVE – keep premium
                ============================================================ */
         @media (max-width: 1024px) {
             .hero .container {
@@ -1196,7 +1160,7 @@
         }
 
         /* ============================================================
-               SCROLLBAR
+               SCROLLBAR – premium
                ============================================================ */
         ::-webkit-scrollbar {
             width: 8px;
@@ -1247,24 +1211,23 @@
     </nav>
 
     <!-- ============================================================
-    HERO
+    HERO – updated content
     ============================================================ -->
     <section class="hero" id="hero">
         <div class="hero-bg-glow"></div>
         <div class="hero-bg-glow-2"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-tag">Python Developer in Training</div>
-                <h1>Learning to Code, <br /><span class="highlight">One Project at a Time</span></h1>
+                <!-- hero-tag removed as requested -->
+                <h1>Hi, I'm Ishant, <br /><span class="highlight">learning Data Analytics.</span></h1>
                 <p>
-                    I'm a beginner Python programmer based in Delhi, India, building small projects to
-                    strengthen my logic, problem-solving, and programming fundamentals.
+                    Based in Delhi, India, I'm an aspiring Data Analyst passionate about uncovering insights through data. I'm currently expanding my skills in Python and Data Analytics, with the long-term goal of contributing to the fields of Artificial Intelligence and Machine Learning.
                 </p>
                 <div class="hero-tech-tags">
                     <span class="pill">Python</span>
-                    <span class="pill">Problem Solving</span>
-                    <span class="pill">Logic Building</span>
-                    <span class="pill">Git &amp; GitHub</span>
+                    <span class="pill">NumPy</span>
+                    <span class="pill">Pandas</span>
+                    <span class="pill">Data Analytics</span>
                 </div>
                 <div class="hero-actions">
                     <a href="#projects" class="btn btn-primary">View My Projects</a>
@@ -1273,67 +1236,48 @@
             </div>
             <div class="hero-photo">
                 <div class="photo-ring" id="profilePhoto">
-                    <!-- REPLACE with your actual image file name -->
                     <img src="image.png" alt="Ishant — profile photo" id="profileImg" />
-                    <!--
-                    Place your image file (image.png) in the same folder as this HTML file.
-                    If you want to use a different name or path, update the src attribute above.
-                    -->
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    ABOUT
+    ABOUT – updated content
     ============================================================ -->
     <section id="about">
-        <div class="about-decor" aria-hidden="true">01</div>
         <div class="container">
             <h2 class="section-heading reveal">About <span class="accent">Me</span></h2>
             <div class="about-text">
                 <p class="reveal">
-                    I'm currently learning Python and improving my programming fundamentals through small,
-                    hands-on projects. I believe the best way to learn is by building — so that's exactly
-                    what I'm doing.
+                    I'm currently building a strong foundation in Data Analytics with Python, focusing on writing clean, efficient code and solving real-world problems through practical projects. I believe the best way to learn is by applying concepts to meaningful work rather than just studying theory.
                 </p>
                 <p class="reveal">
-                    I enjoy breaking down problems into logical steps and figuring out how to solve them
-                    with code. Right now, I'm focusing on control flow, functions, and data structures like
-                    dictionaries and sets. Every project teaches me something new, and I'm embracing the
-                    process of making mistakes and learning from them.
+                    My journey has taken me from Python fundamentals to libraries like NumPy, and I'm continuously expanding my knowledge in data analysis and visualization. Every project helps me strengthen my analytical thinking, improve my technical skills, and gain hands-on experience.
                 </p>
                 <p class="reveal">
-                    My goal is to keep learning consistently, build increasingly complex projects, and
-                    eventually move toward
-                    <strong><!-- REPLACE with your target area: e.g. "web development", "data analysis", "backend development" -->web development</strong>.
-                    <!--
-                    UPDATE the placeholder above with your actual long-term direction.
-                    Examples: "web development", "data analysis", "backend development", "automation", etc.
-                    -->
+                    My long-term goal is to become a Data Analyst and eventually transition into Artificial Intelligence and Machine Learning, building intelligent solutions that create real-world impact.
                 </p>
             </div>
         </div>
     </section>
 
     <!-- ============================================================
-    SKILLS
+    SKILLS – updated content
     ============================================================ -->
     <section id="skills">
         <div class="container">
             <h2 class="section-heading reveal"><span class="accent">Skills</span></h2>
-            <p class="section-subheading reveal">What I'm learning and using right now — keeping it real.</p>
+            <p class="section-subheading reveal">My current toolkit – building a strong foundation.</p>
             <div class="skills-grid">
-                <!-- Programming Fundamentals -->
+                <!-- Programming -->
                 <div class="skills-category reveal">
-                    <h3>Programming Fundamentals</h3>
+                    <h3>Programming</h3>
                     <div class="tags">
                         <span class="tag" style="transition-delay:0.05s;">Python</span>
-                        <span class="tag" style="transition-delay:0.10s;">Conditional Logic (if/elif/else)</span>
-                        <span class="tag" style="transition-delay:0.15s;">Loops</span>
-                        <span class="tag" style="transition-delay:0.20s;">Functions</span>
-                        <span class="tag" style="transition-delay:0.25s;">Dictionaries &amp; Sets</span>
-                        <span class="tag" style="transition-delay:0.30s;">Problem Solving</span>
+                        <span class="tag" style="transition-delay:0.10s;">NumPy</span>
+                        <span class="tag" style="transition-delay:0.15s;">Pandas</span>
+                        <span class="tag" style="transition-delay:0.20s;">Data Structures</span>
                     </div>
                 </div>
                 <!-- Tools -->
@@ -1343,6 +1287,7 @@
                         <span class="tag" style="transition-delay:0.08s;">Git</span>
                         <span class="tag" style="transition-delay:0.14s;">GitHub</span>
                         <span class="tag" style="transition-delay:0.20s;">VS Code</span>
+                        <span class="tag" style="transition-delay:0.26s;">Jupyter Notebook</span>
                     </div>
                 </div>
             </div>
@@ -1350,86 +1295,59 @@
     </section>
 
     <!-- ============================================================
-    PROJECTS / LEARNING JOURNEY
+    PROJECTS – only 3 main projects with links
     ============================================================ -->
     <section id="projects">
         <div class="container">
             <h2 class="section-heading reveal">My <span class="accent">Learning Journey</span></h2>
-            <p class="section-subheading reveal">
-                Small projects I've built while learning Python fundamentals — each one taught me
-                something new.
-            </p>
+            <p class="section-subheading reveal">Hands-on projects that reflect my learning and growth.</p>
 
             <div class="projects-grid">
-                <!-- 1. Python Calculator -->
+                <!-- High Score Game -->
                 <div class="project-card reveal" data-project="0">
+                    <div class="project-title">High Score Game</div>
+                    <div class="project-desc">
+                        A Python game that tracks and saves high scores – practiced file handling, loops, and conditionals.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">File I/O</span>
+                    </div>
+                    <a href="https://github.com/ishantcodes/High-Score-Game" target="_blank" rel="noopener noreferrer" class="btn btn-glass" style="margin-top:8px; padding:8px 20px; font-size:0.85rem;">View on GitHub →</a>
+                </div>
+
+                <!-- Rock Paper Scissors -->
+                <div class="project-card reveal" data-project="1">
+                    <div class="project-title">Rock Paper Scissors Game</div>
+                    <div class="project-desc">
+                        Classic game built with Python – used random module, conditional logic, and user input handling.
+                    </div>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Conditionals</span>
+                    </div>
+                    <a href="https://github.com/ishantcodes/Rock-Paper-Scissors-Game" target="_blank" rel="noopener noreferrer" class="btn btn-glass" style="margin-top:8px; padding:8px 20px; font-size:0.85rem;">View on GitHub →</a>
+                </div>
+
+                <!-- Python Calculator -->
+                <div class="project-card reveal" data-project="2">
                     <div class="project-title">Python Calculator</div>
                     <div class="project-desc">
-                        A simple calculator built using Python while learning programming basics.
+                        A simple calculator built while learning Python basics – functions, arithmetic operations, and user input.
                     </div>
                     <div class="project-tags">
+                        <span class="tag">Python</span>
                         <span class="tag">Fundamentals</span>
                     </div>
-                    <div class="card-hint">Click to learn more →</div>
+                    <a href="https://github.com/ishantcodes/python-calculator" target="_blank" rel="noopener noreferrer" class="btn btn-glass" style="margin-top:8px; padding:8px 20px; font-size:0.85rem;">View on GitHub →</a>
                 </div>
 
-                <!-- 2. Dict & Sets Practice -->
-                <div class="project-card reveal" data-project="1">
-                    <div class="project-title">Dict &amp; Sets Practice</div>
-                    <div class="project-desc">
-                        Six small practice projects built while learning dictionaries and sets, including
-                        a Hindi-to-English dictionary and a unique number finder.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Dictionaries &amp; Sets</span>
-                    </div>
-                    <div class="card-hint">Click to learn more →</div>
-                </div>
-
-                <!-- 3. If-Elif-Else Practice -->
-                <div class="project-card reveal" data-project="2">
-                    <div class="project-title">If-Elif-Else Practice</div>
-                    <div class="project-desc">
-                        A set of problems solved using conditional logic to strengthen decision-making
-                        in code.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Conditional Logic</span>
-                    </div>
-                    <div class="card-hint">Click to learn more →</div>
-                </div>
-
-                <!-- 4. Loops Practice -->
-                <div class="project-card reveal" data-project="3">
-                    <div class="project-title">Loops Practice</div>
-                    <div class="project-desc">
-                        Practice projects focused on using loops to solve repetitive logic problems.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Loops</span>
-                    </div>
-                    <div class="card-hint">Click to learn more →</div>
-                </div>
-
-                <!-- 5. User-Defined Functions Practice -->
-                <div class="project-card reveal" data-project="4">
-                    <div class="project-title">User-Defined Functions Practice</div>
-                    <div class="project-desc">
-                        Problems solved by writing custom functions to organize and reuse code logic.
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Functions</span>
-                    </div>
-                    <div class="card-hint">Click to learn more →</div>
-                </div>
-
-                <!-- Coming soon -->
+                <!-- Coming soon card -->
                 <div class="project-card-coming reveal">
                     <div class="emoji">🚀</div>
                     <div style="font-weight:500; color:var(--text-secondary);">More projects coming soon</div>
                     <div style="font-size:0.9rem;">
                         as I keep learning — check my
-                        <!-- REPLACE href with your actual GitHub profile -->
                         <a href="https://github.com/ishantcodes" target="_blank" rel="noopener noreferrer">GitHub</a>
                         for updates.
                     </div>
@@ -1439,36 +1357,27 @@
     </section>
 
     <!-- ============================================================
-    GOALS / WHAT'S NEXT
+    GOALS – updated content
     ============================================================ -->
     <section id="goals">
         <div class="container">
-            <h2 class="section-heading reveal">What I'm <span class="accent">Working Toward</span></h2>
-            <p class="section-subheading reveal">A honest look at where I am and where I'm heading next.</p>
+            <h2 class="section-heading reveal">What I'm Working Toward <span class="accent">✅</span></h2>
+            <p class="section-subheading reveal">My current learning path toward Data Analytics and Artificial Intelligence.</p>
 
             <div class="goals-timeline">
                 <div class="goal-item reveal">
-                    <div class="goal-label">📚 Now</div>
-                    <div class="goal-text">Python fundamentals, problem-solving, and building
-                    consistent coding habits through daily practice.</div>
+                    <div class="goal-label">📚 NOW</div>
+                    <div class="goal-text">Learning Data Analytics with Python. Currently building projects with NumPy and Pandas while strengthening my problem-solving skills through hands-on practice.</div>
                 </div>
 
                 <div class="goal-item reveal">
-                    <div class="goal-label">⬆️ Next</div>
-                    <div class="goal-text">
-                        <strong><!-- REPLACE with your next learning focus -->Object-Oriented Programming (OOP) in Python</strong>
-                        — I want to understand how to structure code better and start building
-                        more organised projects.
-                    </div>
+                    <div class="goal-label">📈 NEXT</div>
+                    <div class="goal-text"><strong>SQL, Excel &amp; Data Visualization</strong> — Expanding my analytics toolkit by learning SQL, Excel, and visualization libraries to analyze real-world datasets more effectively.</div>
                 </div>
 
                 <div class="goal-item reveal">
-                    <div class="goal-label">🎯 Future</div>
-                    <div class="goal-text">
-                        <strong><!-- REPLACE with your long-term goal -->Become a backend developer</strong>
-                        — I'm excited to build real-world applications and eventually contribute
-                        to open-source projects.
-                    </div>
+                    <div class="goal-label">🎯 FUTURE</div>
+                    <div class="goal-text"><strong>Artificial Intelligence &amp; Machine Learning</strong> — Building a strong foundation in Data Analytics before transitioning into AI and Machine Learning to develop intelligent, data-driven solutions.</div>
                 </div>
             </div>
         </div>
@@ -1485,15 +1394,12 @@
             </p>
 
             <div class="contact-links reveal">
-                <!-- GitHub -->
                 <a href="https://github.com/ishantcodes" target="_blank" rel="noopener noreferrer" class="contact-btn">
                     <span class="icon">🐙</span> GitHub
                 </a>
-                <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/ishant-%E3%85%A4-52628a406/" target="_blank" rel="noopener noreferrer" class="contact-btn">
                     <span class="icon">🔗</span> LinkedIn
                 </a>
-                <!-- Email -->
                 <a href="mailto:ishantttt24@gmail.com" class="contact-btn">
                     <span class="icon">✉️</span> Email
                 </a>
@@ -1511,99 +1417,11 @@
     </footer>
 
     <!-- ============================================================
-    MODAL
-    ============================================================ -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" id="modalContent">
-            <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
-            <div class="modal-title" id="modalTitle">Project Title</div>
-            <div class="modal-desc" id="modalDesc">Project description goes here.</div>
-            <div class="modal-tags" id="modalTags">
-                <span class="tag">Tag</span>
-            </div>
-            <!-- REPLACE href with your actual GitHub repo link -->
-            <a href="#" id="modalRepoLink" target="_blank" rel="noopener noreferrer" class="modal-btn">
-                🔗 View on GitHub
-            </a>
-        </div>
-    </div>
-
-    <!-- ============================================================
-    JAVASCRIPT
+    JAVASCRIPT – Intersection Observer, Theme, Nav, etc.
     ============================================================ -->
     <script>
         (function() {
             'use strict';
-
-            // -------- PROJECT DATA --------
-            const projectsData = [{
-                title: 'Python Calculator',
-                desc: 'A simple calculator built using Python while learning programming basics. This project helped me understand variables, user input, and basic arithmetic operations in Python.',
-                tags: ['Fundamentals'],
-                // REPLACE with your actual GitHub repo URL
-                repo: '#'
-            }, {
-                title: 'Dict & Sets Practice',
-                desc: 'Six small practice projects built while learning dictionaries and sets. Includes a Hindi-to-English dictionary translator and a unique number finder that identifies distinct elements in a list.',
-                tags: ['Dictionaries & Sets'],
-                repo: '#'
-            }, {
-                title: 'If-Elif-Else Practice',
-                desc: 'A collection of problems solved using conditional logic to strengthen decision-making in code. Practiced writing clean conditional statements with multiple branches.',
-                tags: ['Conditional Logic'],
-                repo: '#'
-            }, {
-                title: 'Loops Practice',
-                desc: 'Practice projects focused on using loops to solve repetitive logic problems. Covered for loops, while loops, and nested loops with real-world scenarios.',
-                tags: ['Loops'],
-                repo: '#'
-            }, {
-                title: 'User-Defined Functions Practice',
-                desc: 'Problems solved by writing custom functions to organize and reuse code logic. Learned about function parameters, return values, and scope.',
-                tags: ['Functions'],
-                repo: '#'
-            }];
-
-            // -------- MODAL --------
-            const overlay = document.getElementById('modalOverlay');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalDesc = document.getElementById('modalDesc');
-            const modalTags = document.getElementById('modalTags');
-            const modalRepoLink = document.getElementById('modalRepoLink');
-            const closeBtn = document.getElementById('modalClose');
-
-            function openModal(index) {
-                const data = projectsData[index];
-                if (!data) return;
-                modalTitle.textContent = data.title;
-                modalDesc.textContent = data.desc;
-                modalTags.innerHTML = data.tags.map(t => `<span class="tag">${t}</span>`).join('');
-                modalRepoLink.href = data.repo || '#';
-                overlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeModal() {
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            // Click on project cards
-            document.querySelectorAll('.project-card[data-project]').forEach(card => {
-                card.addEventListener('click', function() {
-                    const idx = parseInt(this.dataset.project, 10);
-                    if (!isNaN(idx)) openModal(idx);
-                });
-            });
-
-            // Close modal events
-            closeBtn.addEventListener('click', closeModal);
-            overlay.addEventListener('click', function(e) {
-                if (e.target === overlay) closeModal();
-            });
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') closeModal();
-            });
 
             // -------- THEME TOGGLE --------
             const themeToggle = document.getElementById('themeToggle');
@@ -1652,7 +1470,6 @@
 
             // -------- NAVBAR SCROLL EFFECT --------
             const navbar = document.getElementById('navbar');
-            let lastScroll = 0;
 
             function handleNavScroll() {
                 const scrollY = window.scrollY;
@@ -1661,7 +1478,6 @@
                 } else {
                     navbar.classList.remove('scrolled');
                 }
-                lastScroll = scrollY;
             }
             window.addEventListener('scroll', handleNavScroll, { passive: true });
 
@@ -1727,8 +1543,7 @@
                 hero.style.transform = `scale(${scale})`;
             }, { passive: true });
 
-            // -------- FIX: ensure hero doesn't get stuck scaled --------
-            // We reset on resize just to be safe
+            // Prevent hero getting stuck scaled on resize
             let resizeTimer;
             window.addEventListener('resize', function() {
                 clearTimeout(resizeTimer);
